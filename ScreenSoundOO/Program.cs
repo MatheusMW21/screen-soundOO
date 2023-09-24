@@ -1,20 +1,18 @@
-﻿
+﻿// adicionando um álbum
+Album abbeyRoad = new Album();
+abbeyRoad.Nome = "Abbey Road";
+
+// Faixa 1
 Musica musica1 = new Musica();
+musica1.Nome = "Come Together";
+musica1.Duracao = 321;
 
-musica1.Nome = "Strawberry Fields Forever";
-musica1.Artista = "The Beatles";
-musica1.Duracao = 400;
-musica1.Disponivel = true;
-Console.WriteLine(musica1.Descricao);
-
+// Faixa 2
 Musica musica2 = new Musica();
-musica2.Nome = "Man in the box";
-musica2.Artista = "Alice in Chains";
-musica2.Duracao = 234;
-musica2.Disponivel = false;
+musica2.Nome = "Something";
+musica2.Duracao = 223;
 
-musica1.ExibirFicha();
-musica2.ExibirFicha();
+abbeyRoad.AdicionarMusica(musica1);
+abbeyRoad.AdicionarMusica(musica2);
 
-
-
+abbeyRoad.PrintAlbum();
