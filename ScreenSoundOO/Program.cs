@@ -15,4 +15,8 @@ musica2.Duracao = 223;
 abbeyRoad.AdicionarMusica(musica1);
 abbeyRoad.AdicionarMusica(musica2);
 
-abbeyRoad.PrintAlbum();
+// Criando banda
+Banda beatles = new Banda();
+beatles.Nome = "The Beatles";
+beatles.AdicionarAlbum(abbeyRoad);
+beatles.PrintDiscografia();
