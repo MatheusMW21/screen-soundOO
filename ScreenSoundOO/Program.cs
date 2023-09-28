@@ -7,10 +7,10 @@ Banda blackSabbath = new("Black Sabbath");
 Banda misfits = new("Misfits");
 
 // adicionando notas
-beatles.AdicionarNota(10);
-nirvana.AdicionarNota(9);
-blackSabbath.AdicionarNota(9);
-misfits.AdicionarNota(9);
+beatles.AdicionarNota(new Avaliacao(10));
+nirvana.AdicionarNota(new Avaliacao(9));
+blackSabbath.AdicionarNota(new Avaliacao(9));
+misfits.AdicionarNota(new Avaliacao(9));
 
 // adicionando no dicionário
 Dictionary<string, Banda> bandasRegistradas = new ();
@@ -151,7 +151,7 @@ void AvaliarUmaBanda()
         Banda banda = bandasRegistradas[nomeDaBanda];
         Console.Write($"Qual a nota que a banda {nomeDaBanda} merece: ");
         int nota = int.Parse(Console.ReadLine()!);
-        banda.AdicionarNota(nota);
+        banda.AdicionarNota(new Avaliacao(nota));
         Console.WriteLine($"\nA nota {nota} foi registrada com sucesso para a banda {nomeDaBanda}");
         Thread.Sleep(2000);
         Console.Clear();
