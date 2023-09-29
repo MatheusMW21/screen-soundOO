@@ -24,6 +24,15 @@ internal class Program
         bandasRegistradas.Add(blackSabbath.Nome, blackSabbath);
         bandasRegistradas.Add(misfits.Nome, misfits);
 
+        // criando dicionário para os menus
+        Dictionary<int, Menu> opcoes = new();
+        opcoes.Add(1, new RegistrarBanda());
+        opcoes.Add(2, new RegistrarAlbum());
+        opcoes.Add(3, new MostrarBanda());
+        opcoes.Add(4, new AvaliarBanda());
+        opcoes.Add(5, new ExibirDetalhes());
+        opcoes.Add(-1, new MenuSair());
+
 
         void ExibirLogo()
         {
@@ -51,45 +60,20 @@ internal class Program
 
             Console.Write("\nDigite a sua opção: ");
             string opcaoEscolhida = Console.ReadLine()!;
-            int opcaoEscolhidaNumerica = int.Parse(opcaoEscolhida);
+            int opcaoMenu = int.Parse(opcaoEscolhida);
 
-            switch (opcaoEscolhidaNumerica)
+            if (opcoes.ContainsKey(opcaoMenu))
             {
-                case 1:
-                    RegistrarBanda registrar = new();
-                    registrar.Executar(bandasRegistradas);
-                    ExibirOpcoesDoMenu();
-                    break;
-                case 2:
-                    RegistrarAlbum registrarAlbum = new();
-                    registrarAlbum.Executar(bandasRegistradas);
-                    ExibirOpcoesDoMenu();
-                    break;
-                case 3:
-                    MostrarBanda mostrarBanda = new();
-                    mostrarBanda.Executar(bandasRegistradas);
-                    ExibirOpcoesDoMenu();
-                    break;
-                case 4:
-                    AvaliarBanda avaliar = new();
-                    avaliar.Executar(bandasRegistradas);
-                    ExibirOpcoesDoMenu();
-                    break;
-                case 5:
-                    ExibirDetalhes menu = new ExibirDetalhes();
-                    menu.Executar(bandasRegistradas);
-                    ExibirOpcoesDoMenu();
-                    break;
-                case -1:
-                    MenuSair menuSair = new();
-                    menuSair.Executar(bandasRegistradas);
-                    break;
-                default:
-                    Console.WriteLine("Opção inválida");
-                    break;
+                Menu menu = opcoes[opcaoMenu];
+                menu.Executar(bandasRegistradas);
+                if (opcaoMenu > 0) ExibirOpcoesDoMenu();
+                
+            }
+            else
+            {
+                Console.WriteLine("Opção Inválida");
             }
         }
-              
         ExibirOpcoesDoMenu();
     }
 }

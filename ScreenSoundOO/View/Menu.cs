@@ -1,4 +1,6 @@
-﻿namespace ScreenSoundOO.View;
+﻿using ScreenSound.Model;
+
+namespace ScreenSoundOO.View;
 
 internal class Menu
 {
@@ -11,4 +13,8 @@ internal class Menu
         Console.WriteLine(asteriscos + "\n");
     }
 
+    public virtual void Executar(Dictionary<string, Banda> bandasRegistradas)
+    {
+        Console.Clear();
+    }
 }
