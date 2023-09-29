@@ -1,11 +1,14 @@
 ﻿using ScreenSound.Model;
+using ScreenSoundOO.Model;
 
 namespace ScreenSound.Model;
 
-internal class Banda
+internal class Banda : IAvaliar
 {
-    private List<Album> albums = new List<Album>();
-    private List<Avaliacao> notas = new List<Avaliacao>();  
+    private List<Album> albuns = new List<Album>();
+    private List<Avaliacao> notas = new List<Avaliacao>();
+    public List<Album> Albuns => albuns;
+
 
     public Banda(string nome)
     {
@@ -22,16 +25,18 @@ internal class Banda
         }
     }
 
+    public string? Resumo { get; set; }
+
     public void AdicionarAlbum(Album album)
     {
-        albums.Add(album);
+        albuns.Add(album);
     }
     
     public void PrintDiscografia()
     {
         Console.WriteLine($"Discografia da banda {Nome}");
 
-        foreach(Album album in albums) 
+        foreach(Album album in albuns) 
         {
 
             Console.WriteLine($"Álbum: {album.Nome} ({album.DuracaoTotal})");
